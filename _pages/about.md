@@ -19,7 +19,7 @@ I am **Boming Zhang (张博铭)**, an M.S. student in Electrical Engineering at 
 - Low-latency microcontroller communication (\ensuremath{\leq}5 ms) with Bluetooth and serial links
 - Full-wave EM simulation with HFSS for power-dependent field distribution analysis
 
-**Education**
+**Education** <i class="fas fa-book" aria-hidden="true"></i>
 <div class="edu-grid">
   <div class="edu-card">
     <div class="edu-logo">
