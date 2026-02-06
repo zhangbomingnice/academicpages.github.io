@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Boming Zhang | Personal Homepage"
+title                    : "Boming Zhang"
 title_separator          : "-"
 name                     : &name "Boming Zhang"
 description              : &description "M.S. student in Electrical Engineering at UPenn, focused on quantum ML, embedded systems, and electromagnetic simulation."

@@ -20,5 +20,25 @@ I am **Boming Zhang (张博铭)**, an M.S. student in Electrical Engineering at 
 - Full-wave EM simulation with HFSS for power-dependent field distribution analysis
 
 **Education**
-- <i class="fas fa-graduation-cap" aria-hidden="true"></i> **University of Pennsylvania** - M.S. Electrical Engineering, 08/2025 -- 05/2027 (GPA 4.0/4.0)
-- <i class="fas fa-graduation-cap" aria-hidden="true"></i> **Shandong University (SDU)** - B.S. Applied Physics, 09/2021 -- 06/2025 (GPA 89.43/100)
+<div class="edu-grid">
+  <div class="edu-card">
+    <div class="edu-logo">
+      <img src="/images/edu-upenn.png" alt="University of Pennsylvania logo" />
+    </div>
+    <div class="edu-info">
+      <div class="edu-school">University of Pennsylvania</div>
+      <div class="edu-degree">M.S. Electrical Engineering</div>
+      <div class="edu-meta">08/2025 -- 05/2027 · GPA 4.0/4.0</div>
+    </div>
+  </div>
+  <div class="edu-card">
+    <div class="edu-logo">
+      <img src="/images/edu-sdu.png" alt="Shandong University logo" />
+    </div>
+    <div class="edu-info">
+      <div class="edu-school">Shandong University (SDU)</div>
+      <div class="edu-degree">B.S. Applied Physics</div>
+      <div class="edu-meta">09/2021 -- 06/2025 · GPA 89.43/100</div>
+    </div>
+  </div>
+</div>
