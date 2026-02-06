@@ -2,25 +2,23 @@
 permalink: /
 title: "Boming Zhang"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-I am **Boming Zhang (张博铭)**, an M.S. student in Electrical Engineering at the University of Pennsylvania. I work across quantum machine learning, embedded systems, and electromagnetic simulation, with a strong applied physics foundation.
+I am **Boming Zhang (张博铭)**, an M.S. student in Electrical Engineering at the University of Pennsylvania. My primary focus is **machine learning, software systems, and embedded hardware**, supported by a rigorous applied physics background that informs modeling, simulation, and quantitative analysis. I build end-to-end systems that connect algorithms with real-world constraints.
 
-Chinese version: [关于](/about-zh/)
+**Research Interests**
+- Machine learning (including quantum and hybrid ML)
+- Embedded systems, microcontroller communication, and hardware--software co-design
+- Electromagnetic simulation and modeling of passive devices
 
-**Current Focus**
-- Quantum machine learning for high-energy physics data classification
-- Embedded systems and microcontroller communication (timers, serial, Bluetooth)
-- Full-wave electromagnetic simulation for passive devices
+**Selected Experience (Brief)**
+- Quantum machine learning for $10^{12}$-scale high-energy physics data classification
+- Low-latency microcontroller communication (\ensuremath{\leq}5 ms) with Bluetooth and serial links
+- Full-wave EM simulation with HFSS for power-dependent field distribution analysis
 
-**Highlights**
-- Built a cross-platform life-tracking ecosystem (iOS/Android/Web) with real-time data synchronization
-- Developed MCU systems with low-latency Bluetooth and serial communication (\ensuremath{\leq}5 ms)
-- Published research on the fractal structure of the Christ--Lee model (arXiv:2503.20799)
-
-**Contact**
-- Email: zhang72@seas.upenn.edu
-- Phone: +1 2152008436
+**Education**
+- <i class="fas fa-graduation-cap" aria-hidden="true"></i> **University of Pennsylvania** - M.S. Electrical Engineering, 08/2025 -- 05/2027 (GPA 4.0/4.0)
+- <i class="fas fa-graduation-cap" aria-hidden="true"></i> **Shandong University (SDU)** - B.S. Applied Physics, 09/2021 -- 06/2025 (GPA 89.43/100)

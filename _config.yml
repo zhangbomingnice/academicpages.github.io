@@ -26,11 +26,13 @@ author:
   avatar           : "profile.png"
   name             : "Boming Zhang"
   pronouns         : # example: "she/her"  
-  bio              : "M.S. in EE at UPenn. Applied physics background. Research in quantum ML, embedded systems, and EM simulation."
-  location         : "Philadelphia, PA / China"
-  employer         : "University of Pennsylvania"
+  bio              : "M.S. in Electrical Engineering at UPenn. Focused on machine learning, embedded systems, and EM simulation."
+  location         :
+  employer         :
   uri              : # URL
-  email            : "zhang72@seas.upenn.edu" 
+  email            : "zhang72@seas.upenn.edu"
+  secondary_email  : "zhangboming2003@126.com"
+  phone            : "+1 2152008436"
 
   # Academic websites
   academia         : # URL

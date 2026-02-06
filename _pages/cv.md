@@ -9,8 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-Chinese version: [简历](/cv-zh/)
-
 Education
 ======
 * **University of Pennsylvania**, M.S. in Electrical Engineering (GPA 4.0/4.0), 08/2025 -- Present
