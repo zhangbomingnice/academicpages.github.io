@@ -19,14 +19,14 @@ redirect_from:
 
 <div class="home-edu">
   <div class="home-edu__row">
-    <div class="home-edu__logo"><img src="/images/edu-sdu.png" alt="山东大学" /></div>
+    <div class="home-edu__logo"><img src="{{ site.baseurl }}/images/edu-sdu.png" alt="山东大学" /></div>
     <div class="home-edu__detail">
       <strong>山东大学 (SDU)</strong><span class="home-edu__time">09/2021 — 06/2025</span><br />
       应用物理学 理学学士 · GPA 89.43/100
     </div>
   </div>
   <div class="home-edu__row">
-    <div class="home-edu__logo"><img src="/images/edu-upenn.png" alt="University of Pennsylvania" /></div>
+    <div class="home-edu__logo"><img src="{{ site.baseurl }}/images/edu-upenn.png" alt="University of Pennsylvania" /></div>
     <div class="home-edu__detail">
       <strong>University of Pennsylvania (UPenn)</strong><span class="home-edu__time">08/2025 — 至今</span><br />
       M.S. Electrical Engineering

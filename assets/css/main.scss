@@ -42,20 +42,29 @@
     "vendor/font-awesome/brands"
 ;
 
-/* ========== 布局：左右留白 + 左右栏间距 ========== */
+/* ========== 布局：左右留白 + 左右栏间距（加宽） ========== */
 #main {
   padding-left: 2em;
   padding-right: 2em;
   @media screen and (min-width: 1280px) {
-    padding-left: 3em;
-    padding-right: 3em;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+
+.sidebar {
+  @media screen and (min-width: 1024px) {
+    padding-right: 2em;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-right: 2.5em;
   }
 }
 
 body .page {
-  margin-left: 2em;
+  margin-left: 3em;
   @media screen and (min-width: 1280px) {
-    margin-left: 3em;
+    margin-left: 4.5em;
   }
 }
 
