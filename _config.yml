@@ -13,9 +13,8 @@ title                    : "Boming Zhang"
 title_separator          : "-"
 name                     : &name "Boming Zhang"
 description              : &description "B.S. in Applied Physics at Shandong University. Research: quantum ML, EM simulation, embedded systems, and atomic/condensed matter physics."
-url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+url                      : "https://zhangbomingnice.github.io" # 你的 GitHub 用户名对应的 Pages 根地址
+baseurl                  : "/academicpages.github.io" # 必须与仓库名一致！若仓库改名请同步修改，用户页留空 ""
 repository               : "academicpages/academicpages.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
