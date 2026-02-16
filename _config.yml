@@ -13,8 +13,9 @@ title                    : "Boming Zhang"
 title_separator          : "-"
 name                     : &name "Boming Zhang"
 description              : &description "B.S. in Applied Physics at Shandong University. Research: quantum ML, EM simulation, embedded systems, and atomic/condensed matter physics."
-url                      : "https://zhangbomingnice.github.io" # 你的 GitHub 用户名对应的 Pages 根地址
-baseurl                  : "/academicpages.github.io" # 必须与仓库名一致！若仓库改名请同步修改，用户页留空 ""
+url                      : "https://zhangbomingnice.github.io"
+# 与你的 Pages 地址一致：https://zhangbomingnice.github.io/academicpages.github.io/
+baseurl                  : "/academicpages.github.io"
 repository               : "academicpages/academicpages.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
