@@ -8,11 +8,11 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "mint" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Boming Zhang"
 title_separator          : "-"
 name                     : &name "Boming Zhang"
-description              : &description "M.S. student in Electrical Engineering at UPenn, focused on quantum ML, embedded systems, and electromagnetic simulation."
+description              : &description "B.S. in Applied Physics at Shandong University. Research: quantum ML, EM simulation, embedded systems, and atomic/condensed matter physics."
 url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,13 +26,13 @@ author:
   avatar           : "profile.png"
   name             : "Boming Zhang"
   pronouns         : # example: "she/her"  
-  bio              : "M.S. in Electrical Engineering at UPenn. Focused on machine learning, embedded systems, and EM simulation."
+  bio              : "山东大学应用物理学学士。研究方向：量子机器学习、电磁仿真、嵌入式系统与原子/凝聚态物理。"
   location         :
   employer         :
   uri              : # URL
-  email            : "zhang72@seas.upenn.edu"
-  secondary_email  : "zhangboming2003@126.com"
-  phone            : "+1 2152008436"
+  email            : "zhangboming2003@126.com"
+  secondary_email  : # 可选：如 zhang72@seas.upenn.edu
+  phone            : "+86 18531056653"
 
   # Academic websites
   academia         : # URL
