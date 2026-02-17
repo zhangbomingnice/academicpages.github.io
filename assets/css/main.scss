@@ -59,12 +59,17 @@
   }
 }
 
+/* 左侧栏加宽，便于完整显示两个邮箱等信息 */
 .sidebar {
   @media screen and (min-width: 1024px) {
     padding-right: 3.5em;
+    width: 300px;
+    max-width: 300px;
   }
   @media screen and (min-width: 1280px) {
     padding-right: 4.5em;
+    width: 340px;
+    max-width: 340px;
   }
 }
 
