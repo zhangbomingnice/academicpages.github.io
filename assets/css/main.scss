@@ -48,24 +48,27 @@
   padding-right: 2em;
   @media screen and (min-width: 1280px) {
     padding-left: 3em;
-    padding-right: 3em;
-    max-width: 1600px;
+    padding-right: 2em;
+    max-width: 1720px;
   }
 }
 
 .sidebar {
   @media screen and (min-width: 1024px) {
-    padding-right: 1.5em;
+    padding-right: 2.5em;
   }
   @media screen and (min-width: 1280px) {
-    padding-right: 2em;
+    padding-right: 3.5em;
   }
 }
 
 body .page {
   margin-left: 3em;
+  @media screen and (min-width: 1024px) {
+    margin-left: 4em;
+  }
   @media screen and (min-width: 1280px) {
-    margin-left: 3.5em;
+    margin-left: 5em;
   }
 }
 
