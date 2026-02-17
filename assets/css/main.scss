@@ -42,29 +42,30 @@
     "vendor/font-awesome/brands"
 ;
 
-/* ========== 布局：左右留白 + 左右栏间距（加宽） ========== */
+/* ========== 布局：左右留白 + 左右栏间距，右侧内容区加宽 ========== */
 #main {
   padding-left: 2em;
   padding-right: 2em;
   @media screen and (min-width: 1280px) {
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 3em;
+    padding-right: 3em;
+    max-width: 1600px;
   }
 }
 
 .sidebar {
   @media screen and (min-width: 1024px) {
-    padding-right: 2em;
+    padding-right: 1.5em;
   }
   @media screen and (min-width: 1280px) {
-    padding-right: 2.5em;
+    padding-right: 2em;
   }
 }
 
 body .page {
   margin-left: 3em;
   @media screen and (min-width: 1280px) {
-    margin-left: 4.5em;
+    margin-left: 3.5em;
   }
 }
 
@@ -301,9 +302,12 @@ body .page {
   margin-top: 0.2em;
 }
 
-/* 右侧内容区向右拓展：主内容区更宽 */
-#main {
-  @media screen and (min-width: 1280px) {
-    max-width: 1400px;
-  }
+/* 条目标题下的第二行（如实习岗位） */
+.page__content .section-entry-title-sub,
+.archive .section-entry-title-sub {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.35em;
+  color: var(--global-text-color);
 }
