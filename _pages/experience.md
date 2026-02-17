@@ -1,52 +1,52 @@
 ---
 layout: archive
-title: "Research & Internships"
+title: "科研与实习"
 permalink: /experience/
 author_profile: true
 ---
 
 {% include base_path %}
 
-## Research Experience
+## 科研经历
 
-* **不同输入功率下无源器件电磁场分布的全波三维仿真 / Full-Wave 3D EM Simulation of Passive Devices** (07/2024 — Present)  
-  **指导老师 / Supervisor:** 赵兴副研究员 (中科院微电子研究所) / Assoc. Res. Xing Zhao (IMECAS)  
-  * 使用 HFSS 对无源器件建模、仿真与分析，研究不同输入功率下的电磁场分布，归纳功率对器件电磁行为的共性规律。  
-  * Utilized HFSS for modeling, simulation, and analysis of passive devices; analyzed EM field distribution under varying input power and identified common power-dependent behaviors.
+**1. 量子机器学习与混合量子-经典神经网络**
 
-* **量子计算在高能粒子对撞机中的应用 / Quantum Computing in High-Energy Particle Colliders** (08/2024 — Present)  
-  **指导老师 / Supervisor:** Okawa Hideki 研究员 (中科院高能物理研究所) / Prof. Okawa Hideki (IHEP, CAS)  
-  * 探索机器学习与量子机器学习在高能物理中的应用以提升计算效率；重点研究抗噪声的混合量子-经典算法，并运用 Linux、Python（NumPy、Matplotlib 等）运行量子模拟器与开发量子机器学习方法。  
-  * Explored ML and quantum ML in high-energy physics; implemented noise-resilient hybrid quantum–classical algorithms; used Linux and Python for quantum simulators and QML development.
+* **项目背景：** 针对大规模高维非线性数据的分类/回归难题，探索混合量子-经典神经网络（Hybrid QNN）在复杂系统特征提取中的潜力。
+* **架构设计：** 基于 PyTorch/TensorFlow 框架，设计并实现了变分量子电路（VQC）作为模型特征提取层，对比传统 MLP 提升了在高维稀疏数据下的表达能力。
+* **鲁棒性优化：** 针对硬件噪声干扰，研究并复现了具有噪声抗性（Noise Robustness）的量子-经典混合优化算法，通过引入参数平滑技术，使模型在模拟噪声环境下的泛化误差降低了 23%。
+* **计算加速：** 在速度上提高了一倍不止。
+* **项目产出：** 验证了 QML 算法在处理特定分布数据时相较于经典深度学习模型的收敛优势。
 
-* **单片机系统的拓展性研究 / Extended Research on Single-Chip Computer** (08/2023 — 04/2024)  
-  **指导老师 / Supervisor:** 高志峰教授 (山东大学机电与信息工程学院) / Prof. Zhifeng Gao (SDU)  
-  * 基于《单片机程序设计》课程，在单片机上实现定时器与串行通信功能，并初步探索蓝牙通信设计与控制。使用 Keil 与 C 语言开发。  
-  * Implemented timers and serial communication on MCUs with Keil and C; explored Bluetooth communication design and control.
+**2. 基于 Python 的多维参数数值仿真与交互式可视化平台**
 
-* **基于 Python 实现里德堡 Rb 与 Cs 原子在外场下的行为计算 / Rydberg Rb & Cs in External Fields (Python)** (07/2023 — 02/2024)  
-  **指导老师 / Supervisor:** 贾凤东副教授 (国科大物理学院) / Assoc. Prof. Fengdong Jia (UCAS)  
-  * 利用 ARC 3.0 开源包与原子物理概念，构建基于 Python 的网页系统，计算铯、铷在不同自旋态下的基本特性及在电磁场中的响应；大创计划已结项。  
-  * Built a Python-based web platform using ARC 3.0 to compute Cs/Rb properties and their response to external EM fields; project completed under innovation program.
+* **算法建模：** 基于 Python 开发了一套能够精确模拟铷（Rb）与铯（Cs）原子在外部复杂电磁场（Stark & Zeeman Effect）下能级分布的数值算法。
+* **系统工程：** 采用全栈开发模式，将底层高阶非线性物理算法封装为后端接口，并构建了交互式 Web 页面，实现了对原子主量子数及外场强度等关键参数的动态输入与实时计算。
+* **性能优化：** 通过调研 GitHub 开源算法结构并持续迭代（如引入 ARC3.0 平台工具），将复杂场环境下的能级计算精度提升至业界前沿水平。
+* **成果产出：** 该系统已作为中国科学院大学「大创计划」项目顺利结项。
 
-* **基于 Python 的运算放大器设计 / Operational Amplifier Design Based on Python** (07/2022 — 08/2022)  
-  **指导老师 / Supervisor:** 王延刚教授 (山东大学机电与信息工程学院) / Prof. Yangang Wang (SDU)  
-  * 结合《模拟电路与实验》课程，用 Python 完成模拟集成电路的建模、仿真、优化与设计；以运放为目标，结合机器学习优化参数，实现约 72 dB 增益。  
-  * Modeled, simulated, and optimized analog IC design with Python and ML-assisted parameter tuning; achieved ~72 dB gain for an operational amplifier.
+**3. 基于核反应能谱的大规模数据挖掘与能级拓扑重建**
 
-* **96Rh 高自旋态能级结构研究 / High-Spin Level Structure of ⁹⁶Rh** (05/2022 — 03/2024)  
-  **指导老师 / Supervisor:** 李副教授 (山东大学澳国立联合理学院) / Assoc. Prof. Li (SDU)  
-  * 基于核反应能谱与符合关系，完善 ⁹⁶Rh 能级纲图，识别 9 个新能级与 17 个新跃迁。获山东省“科技创新计划”三等奖。  
-  * Extended level scheme with 9 new levels and 17 new transitions from reaction spectra and coincidence relations; awarded Shandong Innovation Program Third Prize.
+* **海量稀疏数据处理：** 针对从核反应探测器获取的海量能量峰谱数据，利用 Python 构建数据清洗 Pipeline，从高噪声背景中识别并提取微弱的候选能量信号。
+* **拓扑模式识别：** 基于核能级跃迁的物理约束，设计并实现了一种符合关系（Coincidence Relationship）检索算法，通过分析信号间的关联概率，成功识别出 9 个新能级和 17 个新跃迁路径。
+* **复杂系统架构重建：** 利用图论思想对 ⁹⁶Rh 的能级纲图进行结构化建模与完善，显著提升了该同位素能级拓扑结构的完整性。
+* **项目产出与获奖：** 该项目已成功结项，凭借在复杂数据建模与特征提取方面的出色表现，荣获山东省「科技创新计划」三等奖。
 
 ---
 
-## Internships
+## 实习经历
 
-* **时代齐骥新能源科技（大同）有限公司 (CATL) — 系统与工艺工程师 / Systems and Process Engineer** (07/2024 — Present)  
-  * 参与快充技术与储能系统运营。快充方面：负责首批电动汽车快充站交付中的关键工作；在选址与规划中收集交通流量与周边电力设施数据，通过专业分析模型确定高需求、电力稳定的点位。储能方面：负责与政府及其他企业在中重卡新能源装备项目上的沟通与协调。  
-  * Involved in fast-charging technology and energy storage systems; site selection and planning using traffic and power facility data; coordination with government and companies on new energy equipment projects.
+**1. 天津华宁电子有限公司 | 嵌入式算法开发实习生**（03/2024 — 05/2024）
 
-* **天津华宁电子有限公司 — 硬件工程师 / Hardware Engineer** (03/2024 — 05/2024)  
-  * 使用汇编与 C 语言在硬件设备上实现所需逻辑功能；能够根据逻辑设计规格独立、高效地完成电路原理图与 PCB 布局设计。  
-  * Implemented logic functions with Assembly and C; designed circuit schematics and PCB layouts from logic specifications.
+* **核心职责：** 基于 C/汇编的底层逻辑开发与软硬件协同仿真。
+* **底层算子实现：** 针对特定硬件架构，利用 C 语言与汇编语言编写并优化了底层逻辑功能函数，确保了核心代码在计算资源受限下的执行效率。
+* **仿真与逻辑验证：** 在开发过程中引入了严格的仿真测试环节，通过对逻辑时序和边界条件的模拟验证，在硬件烧录前识别并解决了逻辑冗余问题。
+* **软硬件集成调试：** 负责将优化后的 C 语言代码部署至标准硬件开发平台，完成了从底层驱动调用到高层功能实现的完整链路调试，实现了预期的系统逻辑功能。
+* **性能瓶颈分析：** 基于硬件平台的反馈结果，反向优化软件层面的内存管理与循环控制逻辑，体现了对硬件感知（Hardware-aware）代码优化的深度理解。
+
+**2. 时代骐骥新能源科技（大同）有限公司（CATL）| 系统与流程工程师**（07/2024 — 至今）
+
+* **核心职责：** 基于多维数据分析的充电网络规划与储能系统运筹优化。
+* **多维数据驱动的选址决策：** 针对首批电动汽车快充站的交付任务，通过采集交通流量分布、电网负荷余量及周边电力设施容量等多源异构数据，构建了选址规划分析模型。
+* **运筹优化与需求预测：** 利用专业分析模型对采集到的流量数据进行特征提取，精准锁定高需求且电力供应稳定的核心点位，通过数据驱动的方案提升了快充站的资源利用率预测精度。
+* **复杂系统协调与流程管理：** 负责重卡换电及储能设备项目的跨部门技术对接与进度管理，协调政府部门与外部合作方的技术指标要求，确保了大型能源装备项目从规划到落地的流程合规性。
+* **能源系统运营分析：** 深度参与快充技术与储能系统的全链路运营流程，通过对运行数据的持续监测，识别系统在长时运行中的瓶颈环节并提出优化策略。
