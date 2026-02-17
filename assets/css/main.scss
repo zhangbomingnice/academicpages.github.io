@@ -264,7 +264,9 @@ body .page {
   margin-top: 0;
 }
 
-/* 条目标题（如 "1. 量子机器学习..." 这类段落，非 h2） */
+/* 条目标题（如 "1. 量子机器学习..." 用 .section-entry-title） */
+.page__content .section-entry-title,
+.page__content .archive .section-entry-title,
 .page__content .archive p strong:first-child,
 .page__content .archive > p {
   font-size: 1.1rem;
