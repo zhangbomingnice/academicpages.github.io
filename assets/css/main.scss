@@ -248,3 +248,60 @@ body .page {
 .page__content li {
   margin-bottom: 0.5em;
 }
+
+/* ========== 科研经历 / 实习经历：标题、次标题、内容字号与行距 ========== */
+/* 主标题（如 1. 量子机器学习...） */
+.page__content .archive h2,
+.page__content h3.archive__subtitle {
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin-top: 1.25em;
+  margin-bottom: 0.35em;
+}
+
+.page__content .archive h2:first-child,
+.page__content h3.archive__subtitle:first-of-type {
+  margin-top: 0;
+}
+
+/* 条目标题（如 "1. 量子机器学习..." 这类段落，非 h2） */
+.page__content .archive p strong:first-child,
+.page__content .archive > p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25em;
+}
+
+/* 次标题（如 **项目背景：**） */
+.page__content .archive li,
+.page__content ul li {
+  font-size: 0.98rem;
+  margin-bottom: 0.2em;
+  line-height: 1.55;
+}
+
+.page__content .archive li strong,
+.page__content ul li strong {
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+/* 正文内容（次标题后的描述）与列表项紧凑 */
+.page__content .archive ul,
+.page__content ul {
+  margin-top: 0.15em;
+  margin-bottom: 0.6em;
+}
+
+/* 每个大条目块之间保留间距 */
+.page__content .archive p + ul,
+.page__content .archive h2 + p {
+  margin-top: 0.2em;
+}
+
+/* 右侧内容区向右拓展：主内容区更宽 */
+#main {
+  @media screen and (min-width: 1280px) {
+    max-width: 1400px;
+  }
+}
