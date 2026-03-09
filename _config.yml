@@ -12,7 +12,7 @@ site_theme               : "mint" # The available themes options are "default", 
 title                    : "Boming Zhang"
 title_separator          : "-"
 name                     : &name "Boming Zhang"
-description              : &description "B.S. in Applied Physics at Shandong University. Research: quantum ML, EM simulation, embedded systems, and atomic/condensed matter physics."
+description              : &description "M.S. in EE at UPenn; B.S. in Applied Physics at Shandong University. Research: LLM algorithms, deep reinforcement learning, and numerical modeling."
 url                      : "https://zhangbomingnice.github.io"
 # 与你的 Pages 地址一致：https://zhangbomingnice.github.io/academicpages.github.io/
 baseurl                  : "/academicpages.github.io"

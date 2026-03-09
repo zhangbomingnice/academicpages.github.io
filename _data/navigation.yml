@@ -11,7 +11,7 @@ main:
   - title: "首页"
     url: /
 
-  - title: "科研与实习"
+  - title: "项目与实习"
     url: /experience/
 
   - title: "论文发表"
