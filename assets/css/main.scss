@@ -437,22 +437,9 @@ body .page {
 .visitor-map__bottom {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1.25rem;
   margin-top: 1rem;
-}
-
-.visitor-map__note {
-  margin: 0;
-  flex: 1;
-  font-size: 0.92rem;
-  color: var(--global-text-color-light);
-}
-
-.visitor-map__note strong {
-  display: block;
-  margin-bottom: 0.2rem;
-  color: var(--global-text-color);
 }
 
 .visitor-map__hotspots {
