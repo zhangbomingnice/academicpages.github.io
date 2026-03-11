@@ -21,6 +21,11 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = REPO_ROOT / "assets" / "data" / "visitor-map-live.json"
 DEFAULT_API_BASE_URL = "https://api.umami.is/v1"
 DEFAULT_START_AT = "2000-01-01T00:00:00Z"
+DEFAULT_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/131.0.0.0 Safari/537.36"
+)
 
 COUNTRY_ALIASES = {
     "bolivia": "BO",
@@ -71,6 +76,7 @@ def build_headers(api_base_url: str) -> dict[str, str]:
     if api_key:
         return {
             "Accept": "application/json",
+            "User-Agent": DEFAULT_USER_AGENT,
             "x-umami-api-key": api_key,
         }
 
@@ -84,7 +90,10 @@ def build_headers(api_base_url: str) -> dict[str, str]:
     response = requests.post(
         build_url(api_base_url, "/auth/login"),
         json={"username": username, "password": password},
-        headers={"Accept": "application/json"},
+        headers={
+            "Accept": "application/json",
+            "User-Agent": DEFAULT_USER_AGENT,
+        },
         timeout=60,
     )
     response.raise_for_status()
@@ -95,6 +104,7 @@ def build_headers(api_base_url: str) -> dict[str, str]:
 
     return {
         "Accept": "application/json",
+        "User-Agent": DEFAULT_USER_AGENT,
         "Authorization": f"Bearer {token}",
     }
 
