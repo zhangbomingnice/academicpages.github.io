@@ -1,4 +1,12 @@
 (function () {
+  function canonicalCountryCode(code) {
+    var normalized = (code || "").toUpperCase();
+    if (normalized === "TW") {
+      return "CN";
+    }
+    return normalized;
+  }
+
   function toNumber(value) {
     return Number(value || 0);
   }
@@ -43,7 +51,7 @@
     var counts = [];
 
     countries.forEach(function (item) {
-      var code = (item.code || "").toUpperCase();
+      var code = canonicalCountryCode(item.code);
       var value = Number(item.value) || 0;
 
       if (!code) {
@@ -58,6 +66,12 @@
         counts.push(value);
       }
     });
+
+    if (values.CN) {
+      values.TW = {
+        visits: values.CN.visits
+      };
+    }
 
     return {
       values: values,
@@ -94,7 +108,7 @@
         return;
       }
 
-      var code = (country.code || "").toUpperCase();
+      var code = canonicalCountryCode(country.code);
       if (!code) {
         return;
       }
@@ -102,8 +116,8 @@
       if (!merged[code]) {
         merged[code] = {
           code: code,
-          name: country.name || country.display_name || code,
-          display_name: country.display_name || country.name || code,
+          name: code === "CN" ? "China" : country.name || country.display_name || code,
+          display_name: code === "CN" ? "中国" : country.display_name || country.name || code,
           value: 0
         };
       }

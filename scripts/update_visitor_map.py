@@ -43,6 +43,15 @@ COUNTRY_ALIASES = {
     "venezuela": "VE",
     "vietnam": "VN",
 }
+COUNTRY_CODE_GROUPS = {
+    "TW": "CN",
+}
+COUNTRY_NAME_OVERRIDES = {
+    "CN": "China",
+}
+COUNTRY_DISPLAY_OVERRIDES = {
+    "CN": "中国",
+}
 
 
 def getenv(name: str, default: str | None = None, required: bool = False) -> str:
@@ -149,7 +158,7 @@ def normalize_countries(data: object) -> list[dict]:
     if not isinstance(data, list):
         raise RuntimeError("Unexpected Umami country response format")
 
-    countries: list[dict] = []
+    aggregated: dict[str, dict] = {}
     for row in data:
         if not isinstance(row, dict):
             continue
@@ -162,19 +171,22 @@ def normalize_countries(data: object) -> list[dict]:
         if not code:
             continue
 
+        code = COUNTRY_CODE_GROUPS.get(code, code)
         value = int(row.get("visits") or row.get("pageviews") or row.get("visitors") or row.get("y") or 0)
         if value <= 0:
             continue
 
-        countries.append(
-            {
+        if code not in aggregated:
+            aggregated[code] = {
                 "code": code,
-                "name": name,
-                "display_name": name,
-                "value": value,
+                "name": COUNTRY_NAME_OVERRIDES.get(code, name),
+                "display_name": COUNTRY_DISPLAY_OVERRIDES.get(code, name),
+                "value": 0,
             }
-        )
 
+        aggregated[code]["value"] += value
+
+    countries = list(aggregated.values())
     countries.sort(key=lambda item: item["value"], reverse=True)
     return countries
 
