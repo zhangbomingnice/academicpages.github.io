@@ -1,0 +1,61 @@
+{% include base_path %}
+{% assign visitor_map = site.data.visitor_map %}
+{% if visitor_map and visitor_map.enabled %}
+<section class="visitor-map" aria-labelledby="visitor-map-title" data-visitor-map-root data-baseurl="{{ base_path }}">
+  <div class="visitor-map__header">
+    <div>
+      <p class="visitor-map__eyebrow">{{ visitor_map.title | default: "Visitor Map" }}</p>
+      <h2 id="visitor-map-title" class="visitor-map__title">{{ visitor_map.heading | default: "访客足迹" }}</h2>
+      <p class="visitor-map__description">{{ visitor_map.description }}</p>
+    </div>
+    <span class="visitor-map__badge" data-visitor-map-badge>{{ visitor_map.status_label | default: "Demo Preview" }}</span>
+  </div>
+
+  <div class="visitor-map__stats">
+    <div class="visitor-map__stat">
+      <span class="visitor-map__stat-label">累计访问</span>
+      <strong class="visitor-map__stat-value" data-visitor-stat="pageviews">{{ visitor_map.summary.pageviews }}</strong>
+    </div>
+    <div class="visitor-map__stat">
+      <span class="visitor-map__stat-label">独立访客</span>
+      <strong class="visitor-map__stat-value" data-visitor-stat="visitors">{{ visitor_map.summary.visitors }}</strong>
+    </div>
+    <div class="visitor-map__stat">
+      <span class="visitor-map__stat-label">覆盖国家</span>
+      <strong class="visitor-map__stat-value" data-visitor-stat="countries">{{ visitor_map.summary.countries | default: visitor_map.countries.size }}</strong>
+    </div>
+    <div class="visitor-map__stat">
+      <span class="visitor-map__stat-label">最近更新</span>
+      <strong class="visitor-map__stat-value" data-visitor-stat="updated_at">{{ visitor_map.summary.updated_at }}</strong>
+    </div>
+  </div>
+
+  <div class="visitor-map__chart-shell">
+    <div id="visitor-map-chart" class="visitor-map__chart" aria-label="World visitor heatmap"></div>
+  </div>
+
+  <div class="visitor-map__legend" aria-hidden="true">
+    <span class="visitor-map__legend-label">少</span>
+    <span class="visitor-map__legend-bar"></span>
+    <span class="visitor-map__legend-label">多</span>
+  </div>
+
+  <div class="visitor-map__bottom">
+    <p class="visitor-map__note">
+      <strong data-visitor-map-source>{{ visitor_map.summary.source_label }}</strong>
+      <span data-visitor-map-detail>{{ visitor_map.summary.source_detail }}</span>
+    </p>
+    <div class="visitor-map__hotspots">
+      <span class="visitor-map__hotspots-label">热点国家</span>
+      <ul class="visitor-map__hotspots-list" data-visitor-map-hotspots>
+        {% assign top_countries = visitor_map.countries | sort: "value" | reverse %}
+        {% for item in top_countries limit: 5 %}
+        <li>{{ item.display_name | default: item.name }} · {{ item.value }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <script id="visitor-map-data" type="application/json">{{ visitor_map | jsonify }}</script>
+</section>
+{% endif %}

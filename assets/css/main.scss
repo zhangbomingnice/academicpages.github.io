@@ -325,3 +325,204 @@ body .page {
   margin-bottom: 0.35em;
   color: var(--global-text-color);
 }
+
+/* ========== Footer visitor map ========== */
+.visitor-map {
+  margin: 2.25rem 0 1.75rem;
+  padding: 1.25rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 248, 252, 0.96));
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.visitor-map__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.visitor-map__eyebrow {
+  margin: 0 0 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--global-link-color);
+}
+
+.visitor-map__title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.visitor-map__description {
+  margin: 0.35rem 0 0;
+  max-width: 58rem;
+  color: var(--global-text-color-light);
+}
+
+.visitor-map__badge {
+  flex-shrink: 0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.visitor-map__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.visitor-map__stat {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.visitor-map__stat-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.84rem;
+  color: var(--global-text-color-light);
+}
+
+.visitor-map__stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--global-text-color);
+}
+
+.visitor-map__chart-shell {
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.visitor-map__chart {
+  width: 100%;
+  height: 420px;
+}
+
+.visitor-map__legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.visitor-map__legend-label {
+  font-size: 0.82rem;
+  color: var(--global-text-color-light);
+}
+
+.visitor-map__legend-bar {
+  display: inline-block;
+  width: 180px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dfe4ea 0%, #c7d2fe 35%, #60a5fa 70%, #2563eb 100%);
+}
+
+.visitor-map__bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.visitor-map__note {
+  margin: 0;
+  flex: 1;
+  font-size: 0.92rem;
+  color: var(--global-text-color-light);
+}
+
+.visitor-map__note strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--global-text-color);
+}
+
+.visitor-map__hotspots {
+  min-width: 250px;
+}
+
+.visitor-map__hotspots-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+.visitor-map__hotspots-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visitor-map__hotspots-list li {
+  margin: 0;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #1e3a8a;
+  font-size: 0.84rem;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 900px) {
+  .visitor-map__header,
+  .visitor-map__bottom {
+    flex-direction: column;
+  }
+
+  .visitor-map__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .visitor-map__hotspots {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .visitor-map {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .visitor-map__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .visitor-map__chart {
+    height: 320px;
+  }
+
+  .visitor-map__legend {
+    justify-content: flex-start;
+  }
+
+  .visitor-map__legend-bar {
+    width: 120px;
+  }
+}
