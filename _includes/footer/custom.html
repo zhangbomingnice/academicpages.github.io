@@ -1,4 +1,5 @@
 {% include base_path %}
+{% assign visitor_map = site.data.visitor_map %}
 
 <!-- start custom footer snippets -->
 
@@ -9,6 +10,16 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/svgmap@v2.19.2/dist/svg-map.umd.min.js"></script>
 <script defer src="{{ base_path }}/assets/js/visitor-map.js"></script>
+
+{% if visitor_map.provider == "umami" and visitor_map.tracking and visitor_map.tracking.enabled and visitor_map.tracking.script_url and visitor_map.tracking.website_id %}
+<script
+  defer
+  src="{{ visitor_map.tracking.script_url }}"
+  data-website-id="{{ visitor_map.tracking.website_id }}"
+  {% if visitor_map.tracking.host_url %}data-host-url="{{ visitor_map.tracking.host_url }}"{% endif %}
+  {% if visitor_map.tracking.domains %}data-domains="{{ visitor_map.tracking.domains }}"{% endif %}
+></script>
+{% endif %}
 
 <!-- Support for Mermaid -->
 <script type="module">

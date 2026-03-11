@@ -1,6 +1,10 @@
 (function () {
+  function toNumber(value) {
+    return Number(value || 0);
+  }
+
   function formatNumber(value) {
-    var number = Number(value || 0);
+    var number = toNumber(value);
     return number.toLocaleString("zh-CN");
   }
 
@@ -82,10 +86,75 @@
     };
   }
 
+  function mergeCountries(baseCountries, remoteCountries) {
+    var merged = {};
+
+    function apply(country) {
+      if (!country) {
+        return;
+      }
+
+      var code = (country.code || "").toUpperCase();
+      if (!code) {
+        return;
+      }
+
+      if (!merged[code]) {
+        merged[code] = {
+          code: code,
+          name: country.name || country.display_name || code,
+          display_name: country.display_name || country.name || code,
+          value: 0
+        };
+      }
+
+      if (country.name && !merged[code].name) {
+        merged[code].name = country.name;
+      }
+
+      if (
+        country.display_name &&
+        (!merged[code].display_name || merged[code].display_name === merged[code].name)
+      ) {
+        merged[code].display_name = country.display_name;
+      }
+
+      merged[code].value += toNumber(country.value);
+    }
+
+    (baseCountries || []).forEach(apply);
+    (remoteCountries || []).forEach(apply);
+
+    return Object.keys(merged)
+      .map(function (code) {
+        return merged[code];
+      })
+      .sort(function (a, b) {
+        return toNumber(b.value) - toNumber(a.value);
+      });
+  }
+
   function mergePayload(basePayload, remotePayload) {
-    var merged = Object.assign({}, basePayload, remotePayload);
-    merged.summary = Object.assign({}, basePayload.summary || {}, remotePayload.summary || {});
-    merged.countries = Array.isArray(remotePayload.countries) ? remotePayload.countries : basePayload.countries;
+    var baseSummary = basePayload.summary || {};
+    var remoteSummary = (remotePayload && remotePayload.summary) || {};
+    var mergedCountries = mergeCountries(basePayload.countries, remotePayload.countries);
+    var merged = {
+      mode: basePayload.mode,
+      status_label: remotePayload.status_label || basePayload.status_label,
+      endpoint: basePayload.endpoint,
+      summary: {
+        pageviews: toNumber(baseSummary.pageviews) + toNumber(remoteSummary.pageviews),
+        visitors: toNumber(baseSummary.visitors) + toNumber(remoteSummary.visitors),
+        countries: mergedCountries.filter(function (item) {
+          return toNumber(item.value) > 0;
+        }).length,
+        updated_at: remoteSummary.updated_at || baseSummary.updated_at || "",
+        source_label: baseSummary.source_label || remoteSummary.source_label || "",
+        source_detail: baseSummary.source_detail || remoteSummary.source_detail || ""
+      },
+      countries: mergedCountries
+    };
+
     return normalizePayload(merged);
   }
 

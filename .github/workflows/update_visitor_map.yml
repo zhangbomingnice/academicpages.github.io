@@ -1,0 +1,50 @@
+name: Update Visitor Map Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+jobs:
+  sync:
+    if: ${{ secrets.UMAMI_WEBSITE_ID != '' && (secrets.UMAMI_API_KEY != '' || (secrets.UMAMI_API_BASE_URL != '' && secrets.UMAMI_USERNAME != '' && secrets.UMAMI_PASSWORD != '')) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests pycountry
+
+      - name: Fetch Umami analytics
+        env:
+          UMAMI_API_BASE_URL: ${{ secrets.UMAMI_API_BASE_URL }}
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+          UMAMI_API_KEY: ${{ secrets.UMAMI_API_KEY }}
+          UMAMI_USERNAME: ${{ secrets.UMAMI_USERNAME }}
+          UMAMI_PASSWORD: ${{ secrets.UMAMI_PASSWORD }}
+          UMAMI_START_AT: ${{ secrets.UMAMI_START_AT }}
+          UMAMI_END_AT: ${{ secrets.UMAMI_END_AT }}
+        run: |
+          python scripts/update_visitor_map.py
+
+      - name: Commit updated analytics JSON
+        run: |
+          if git diff --quiet -- assets/data/visitor-map-live.json; then
+            echo "No visitor map changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/visitor-map-live.json
+          git commit -m "Automated update of visitor map data"
+          git push

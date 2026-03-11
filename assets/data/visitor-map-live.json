@@ -1,0 +1,12 @@
+{
+  "status_label": "实时数据",
+  "summary": {
+    "pageviews": 0,
+    "visitors": 0,
+    "countries": 0,
+    "updated_at": "未同步",
+    "source_label": "Umami 新增访问",
+    "source_detail": "当前显示会把历史基线与你之后的真实访客新增量相加。完成 Umami 配置后，仓库会自动同步真实国家统计。"
+  },
+  "countries": []
+}

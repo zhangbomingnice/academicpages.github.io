@@ -410,7 +410,7 @@ body .page {
 
 .visitor-map__chart {
   width: 100%;
-  min-height: 360px;
+  min-height: 330px;
 }
 
 .visitor-map__legend {
@@ -489,7 +489,7 @@ body .page {
 }
 
 .visitor-map .svgMap-map-wrapper {
-  padding-top: 46%;
+  padding-top: 42%;
   background: transparent;
 }
 
@@ -535,7 +535,7 @@ body .page {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: 280px;
   color: var(--global-text-color-light);
   font-size: 0.96rem;
 }
@@ -567,7 +567,7 @@ body .page {
   }
 
   .visitor-map__chart {
-    min-height: 240px;
+    min-height: 220px;
   }
 
   .visitor-map__legend {
@@ -579,6 +579,6 @@ body .page {
   }
 
   .visitor-map .svgMap-map-wrapper {
-    padding-top: 60%;
+    padding-top: 56%;
   }
 }
