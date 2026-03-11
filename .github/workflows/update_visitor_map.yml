@@ -7,36 +7,50 @@ on:
 
 jobs:
   sync:
-    if: ${{ secrets.UMAMI_WEBSITE_ID != '' && (secrets.UMAMI_API_KEY != '' || (secrets.UMAMI_API_BASE_URL != '' && secrets.UMAMI_USERNAME != '' && secrets.UMAMI_PASSWORD != '')) }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      UMAMI_API_BASE_URL: ${{ secrets.UMAMI_API_BASE_URL }}
+      UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+      UMAMI_API_KEY: ${{ secrets.UMAMI_API_KEY }}
+      UMAMI_USERNAME: ${{ secrets.UMAMI_USERNAME }}
+      UMAMI_PASSWORD: ${{ secrets.UMAMI_PASSWORD }}
+      UMAMI_START_AT: ${{ secrets.UMAMI_START_AT }}
+      UMAMI_END_AT: ${{ secrets.UMAMI_END_AT }}
 
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check Umami configuration
+        id: config
+        run: |
+          if [ -n "$UMAMI_WEBSITE_ID" ] && { [ -n "$UMAMI_API_KEY" ] || { [ -n "$UMAMI_API_BASE_URL" ] && [ -n "$UMAMI_USERNAME" ] && [ -n "$UMAMI_PASSWORD" ]; }; }; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "Umami analytics sync is enabled."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Umami analytics sync is not configured. Skipping."
+          fi
+
       - name: Set up Python
+        if: steps.config.outputs.enabled == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
+        if: steps.config.outputs.enabled == 'true'
         run: |
           pip install requests pycountry
 
       - name: Fetch Umami analytics
-        env:
-          UMAMI_API_BASE_URL: ${{ secrets.UMAMI_API_BASE_URL }}
-          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
-          UMAMI_API_KEY: ${{ secrets.UMAMI_API_KEY }}
-          UMAMI_USERNAME: ${{ secrets.UMAMI_USERNAME }}
-          UMAMI_PASSWORD: ${{ secrets.UMAMI_PASSWORD }}
-          UMAMI_START_AT: ${{ secrets.UMAMI_START_AT }}
-          UMAMI_END_AT: ${{ secrets.UMAMI_END_AT }}
+        if: steps.config.outputs.enabled == 'true'
         run: |
           python scripts/update_visitor_map.py
 
       - name: Commit updated analytics JSON
+        if: steps.config.outputs.enabled == 'true'
         run: |
           if git diff --quiet -- assets/data/visitor-map-live.json; then
             echo "No visitor map changes to commit."
