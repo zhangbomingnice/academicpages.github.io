@@ -34,65 +34,30 @@
       .join("");
   }
 
-  function buildOption(payload) {
-    var countries = Array.isArray(payload.countries) ? payload.countries : [];
-    var values = countries
-      .map(function (item) {
-        return Number(item.value) || 0;
-      })
-      .filter(function (value) {
-        return value > 0;
-      });
-    var max = values.length ? Math.max.apply(null, values) : 100;
+  function buildMapValues(countries) {
+    var values = {};
+    var counts = [];
+
+    countries.forEach(function (item) {
+      var code = (item.code || "").toUpperCase();
+      var value = Number(item.value) || 0;
+
+      if (!code) {
+        return;
+      }
+
+      values[code] = {
+        visits: value
+      };
+
+      if (value > 0) {
+        counts.push(value);
+      }
+    });
 
     return {
-      tooltip: {
-        trigger: "item",
-        formatter: function (params) {
-          var value = params.value || 0;
-          var label = params.data && params.data.display_name ? params.data.display_name : params.name;
-          return label + "<br/>访问次数: " + formatNumber(value);
-        }
-      },
-      visualMap: {
-        min: 0,
-        max: max,
-        orient: "horizontal",
-        left: "center",
-        bottom: 4,
-        text: ["高", "低"],
-        calculable: false,
-        itemWidth: 140,
-        itemHeight: 10,
-        textStyle: {
-          color: "#5b6472"
-        },
-        inRange: {
-          color: ["#dfe4ea", "#c7d2fe", "#93c5fd", "#60a5fa", "#2563eb"]
-        }
-      },
-      series: [
-        {
-          type: "map",
-          map: "world",
-          roam: true,
-          nameProperty: "name",
-          emphasis: {
-            label: {
-              show: false
-            },
-            itemStyle: {
-              areaColor: "#f59e0b"
-            }
-          },
-          itemStyle: {
-            areaColor: "#eceff3",
-            borderColor: "#ffffff",
-            borderWidth: 0.7
-          },
-          data: countries
-        }
-      ]
+      values: values,
+      max: counts.length ? Math.max.apply(null, counts) : 100
     };
   }
 
@@ -151,14 +116,44 @@
 
   function renderMap(payload) {
     var chartElement = document.getElementById("visitor-map-chart");
-    if (!chartElement || !window.echarts) {
+    var mapFactory = window.svgMap;
+
+    if (!chartElement) {
       return;
     }
 
-    var chart = window.echarts.getInstanceByDom(chartElement) || window.echarts.init(chartElement);
-    chart.setOption(buildOption(payload));
-    window.addEventListener("resize", function () {
-      chart.resize();
+    if (!mapFactory) {
+      chartElement.innerHTML = '<div class="visitor-map__fallback">二维世界地图加载失败，请稍后刷新重试。</div>';
+      return;
+    }
+
+    var mapData = buildMapValues(payload.countries);
+    chartElement.innerHTML = "";
+
+    new mapFactory({
+      targetElementID: "visitor-map-chart",
+      colorMin: "#dfe4ea",
+      colorMax: "#2563eb",
+      colorNoData: "#eceff3",
+      noDataText: "暂无访问数据",
+      flagType: "emoji",
+      hideFlag: true,
+      minZoom: 1,
+      maxZoom: 1,
+      showZoomReset: false,
+      data: {
+        data: {
+          visits: {
+            name: "访问次数",
+            format: "{0}",
+            thousandSeparator: ",",
+            thresholdMin: 0,
+            thresholdMax: Math.max(mapData.max, 1)
+          }
+        },
+        applyData: "visits",
+        values: mapData.values
+      }
     });
   }
 
