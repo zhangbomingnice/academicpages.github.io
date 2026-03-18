@@ -1,70 +1,7 @@
-enabled: true
-mode: live
 provider: umami
-title: "Visitor Map"
-heading: "访客足迹"
-description: "按国家/地区聚合的二维平面世界地图。当前显示将按“历史基线 + 新增真实访问”累计。"
-status_label: "实时数据"
-endpoint: "/assets/data/visitor-map-live.json"
 tracking:
   enabled: true
   script_url: "https://cloud.umami.is/script.js"
   website_id: "6c049c54-3c24-47d8-84b1-222c0bf2178b"
   host_url: ""
   domains: "zhangbomingnice.github.io"
-summary:
-  pageviews: 12483
-  visitors: 6921
-  countries: 12
-  updated_at: "2026-03-11"
-  source_label: "历史基线 + Umami 新增访问"
-  source_detail: "当前显示 = 你现有的历史基线数字 + Umami 后续记录到的真实访客数据。真实访问会继续累加，不从 0 开始。"
-countries:
-  - code: CN
-    name: China
-    display_name: "中国"
-    value: 382
-  - code: US
-    name: United States
-    display_name: "美国"
-    value: 261
-  - code: CA
-    name: Canada
-    display_name: "加拿大"
-    value: 88
-  - code: GB
-    name: United Kingdom
-    display_name: "英国"
-    value: 74
-  - code: DE
-    name: Germany
-    display_name: "德国"
-    value: 62
-  - code: FR
-    name: France
-    display_name: "法国"
-    value: 49
-  - code: SG
-    name: Singapore
-    display_name: "新加坡"
-    value: 45
-  - code: JP
-    name: Japan
-    display_name: "日本"
-    value: 40
-  - code: AU
-    name: Australia
-    display_name: "澳大利亚"
-    value: 35
-  - code: KR
-    name: South Korea
-    display_name: "韩国"
-    value: 29
-  - code: IN
-    name: India
-    display_name: "印度"
-    value: 25
-  - code: NL
-    name: Netherlands
-    display_name: "荷兰"
-    value: 18
