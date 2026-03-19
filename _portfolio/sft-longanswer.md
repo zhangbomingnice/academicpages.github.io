@@ -99,11 +99,3 @@ v2.9 使用 **v2.7 的 LoRA**，唯一变量为损失函数：**CE vs CE+UL-lite
 
 **总分范围：** 0–100。评测采用 Pairwise blind comparison，MiniMax 2.7 与 Gemini Pro 3 双裁判，结合 N-gram 重复率、结构统计、风格检测、多轮评审（K=3）与中位数聚合/规则后修正。
 
----
-
-## 五、参考
-
-- [LLM DataProcessing Agent GitHub](https://github.com/zhangbomingnice/LLM_dataprocessing_agent)
-- 版本参数详情见 `LLMversion.xlsx`（参数展开、版本总表、版本解读）
-- 数据表：`data/all_versions_base_sft_means_clean.csv`（Base vs SFT）、`v2_7_vs_v2_9_means_full_clean.csv`（v2.7 vs v2.9）
-- 图表生成：`cd scripts && pip install pandas matplotlib -q && python generate_sft_chart.py`
