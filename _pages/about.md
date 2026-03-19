@@ -50,7 +50,7 @@ redirect_from:
 ### 项目经历
 
 <p class="section-entry-title">1. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">中文长回答 SFT 评测与优化</a></p>
-<span class="section-entry-meta">2024 – 2025</span>
+<span class="section-entry-meta">02/2026 – 至今</span>
 
 - 基于 Qwen2.5-1.5B 的 LoRA SFT 多版本迭代（v2→v2.9），系统化探索 LoRA 目标、学习率、max_length、decode 约束与 UL-lite 对中文长回答质量的影响。  
 - 发现 attn-only 相比 attn+MLP 显著提升 Delta（约 -5.2 → +2.6），搭建六维度 LLM-as-Judge 评测体系，v2.8 实现最佳整体表现（Delta +8.09）。  

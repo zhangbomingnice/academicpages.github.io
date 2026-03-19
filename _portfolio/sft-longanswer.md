@@ -1,10 +1,10 @@
 ---
 title: "中文长回答 SFT 评测与优化"
-date: 2025-03-01
+date: 2026-02-01
 excerpt: "基于 Qwen2.5-1.5B 的 LoRA SFT 中文长回答生成优化，多版本迭代（v2→v2.9），六维度评测体系与参数影响分析。"
 ---
 
-**时间：** 2024 – 2025  
+**时间：** 02/2026 – 至今  
 
 **项目地址：** [LLM DataProcessing Agent](https://github.com/zhangbomingnice/LLM_dataprocessing_agent)
 
