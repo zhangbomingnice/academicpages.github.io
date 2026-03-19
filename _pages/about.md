@@ -49,11 +49,14 @@ redirect_from:
 
 ### 项目经历
 
-<p class="section-entry-title">1. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">中文长回答 SFT 评测与优化</a></p>
+<p class="section-entry-title">1. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">LLM 后训练与数据评测 Agent 系统开发｜中文长回答优化方向</a></p>
 <span class="section-entry-meta">02/2026 – 至今</span>
 
-- 基于 Qwen2.5-1.5B 的 LoRA SFT 多版本迭代（v2→v2.9），系统化探索 LoRA 目标、学习率、max_length、decode 约束与 UL-lite 对中文长回答质量的影响。  
-- 发现 attn-only 相比 attn+MLP 显著提升 Delta（约 -5.2 → +2.6），搭建六维度 LLM-as-Judge 评测体系，v2.8 实现最佳整体表现（Delta +8.09）。  
+- 围绕中文长回答生成质量优化，基于 Qwen2.5-1.5B + LoRA + TRL SFTTrainer 搭建端到端后训练 workflow，完成 数据构建、SFT 微调、推理对比、离线评测与版本迭代 的闭环系统，重点解决长回答中的结构松散、后半段空转与重复生成问题。
+- 自主设计并落地 LLM DataProcessing Agent，将数据清洗、样本重写、CoT 标注、质量筛查与评测分析流程 agent 化，形成可复用的数据处理基础设施；其中 Corpus Cleaner 负责训练语料质量提升，cn_eval 负责评测集自动化分析与结果聚合。
+- 构建 Pairwise blind comparison + LLM-as-a-Judge 评测框架，引入 MiniMax 2.7 与 Gemini Pro 3 作为双裁判模型，结合 N-gram 重复率、结构统计、风格检测、多轮评审（K=3）与中位数聚合/规则后修正，实现面向中文长回答的自动化、多维度质量评估。
+- 在约 6000 条训练样本、600 条评测样本 上推进 v2–v2.9 多版本实验，对 LoRA target、max_length、learning rate、decode 策略与 UL-lite loss 等关键变量进行系统对照，定位 NonRepetition 为核心瓶颈，并形成从训练侧到推理侧的专项优化路径。
+- 推动最佳版本相较 base 获得 +8.09 分整体增益，验证了 attention-only LoRA + 低学习率 + decode 约束 在中文长回答场景中的有效性，并为后续 RLHF / Preference Optimization / reward design 提供可复用实验基线。  
 
 <p class="section-entry-title">2. <a href="{{ site.baseurl }}/portfolio/photonics/">基于 AI 的一维光子晶体逆向设计</a></p>
 <span class="section-entry-meta">12/2023 – 05/2024</span>
