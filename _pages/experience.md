@@ -33,6 +33,12 @@ author_profile: true
 * 独立主导并交付两款覆盖 iOS、鸿蒙、安卓系统与 Web 端的应用，通过继承 Claude Code、Opencode 等搭建 App 开发工作流，实现业务逻辑在多端的高效同步和迭代。
 * 从 UI 设计、3D 视觉渲染到后端数据库完成全栈开发；项目周期内探索 AI 工具链在交付过程中的辅助提升，具备多端产品从 0 到 1 的完整交付能力。
 
+<p class="section-entry-title">5. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">中文长回答 SFT 评测与优化</a></p>
+<span class="section-entry-meta">2024 – 2025</span>
+
+* 基于 Qwen2.5-1.5B 的 LoRA SFT 多版本迭代（v2→v2.9），系统化探索 LoRA 目标、学习率、max_length、decode 约束与 UL-lite 对中文长回答质量的影响。
+* 发现 attn-only 相比 attn+MLP 显著提升 Delta（约 -5.2 → +2.6），搭建六维度 LLM-as-Judge 评测体系，v2.8 实现最佳整体表现（Delta +8.09）。
+
 ---
 
 ## 实习经历
