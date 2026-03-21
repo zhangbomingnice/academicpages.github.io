@@ -1,0 +1,3 @@
+comparison,baseline_name,v3_name,sample_n,baseline_mode,v3_mode,delta_mode,baseline_struct,v3_struct,delta_struct,baseline_org,v3_org,delta_org,baseline_fluency,v3_fluency,delta_fluency,baseline_rep,v3_rep,delta_rep,baseline_fit,v3_fit,delta_fit,baseline_total,v3_total,delta_total,win_tie_loss,non_tie_win_rate,median_diff,trimmed_mean,t_p,wilcoxon_p
+v3_main_vs_v2.7,v2.7,v3_main,600,19.975,20.0,0.025,22.162,22.35,0.188,17.912,18.125,0.213,14.325,14.45,0.125,13.025,13.35,0.325,4.598,4.67,0.072,91.997,92.945,0.948,62_476_62,0.5,0,0,0.317,0.294
+v3_bestdecode_vs_v2.8,v2.8,v3_bestdecode,600,19.605,19.553,-0.052,21.888,21.79,-0.098,18.063,17.982,-0.082,14.31,14.302,-0.008,14.722,14.692,-0.03,4.625,4.592,-0.033,93.23,92.91,-0.32,295_9_296,0.499,-0.096,-0.096,0.529,0.616
