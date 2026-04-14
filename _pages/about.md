@@ -49,20 +49,18 @@ redirect_from:
 
 ### 项目经历
 
-<p class="section-entry-title">1. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">LLM 后训练与数据评测 Agent 系统开发｜中文长回答优化方向</a></p>
-<span class="section-entry-meta">02/2026 – 至今</span>
+<p class="section-entry-title">1. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">针对于中文（孤立语）的LLM 长回答优化</a></p>
+<span class="section-entry-meta">03/2026 – 至今</span>
 
-- 围绕中文长回答生成质量优化，基于 Qwen2.5-1.5B + LoRA + TRL SFTTrainer 搭建端到端后训练 workflow，完成 数据构建、SFT 微调、推理对比、离线评测与版本迭代 的闭环系统，重点解决长回答中的结构松散、后半段空转与重复生成问题。
-- 自主设计并落地 LLM DataProcessing Agent，将数据清洗、样本重写、CoT 标注、质量筛查与评测分析流程 agent 化，形成可复用的数据处理基础设施；其中 Corpus Cleaner 负责训练语料质量提升，cn_eval 负责评测集自动化分析与结果聚合。
-- 构建 Pairwise blind comparison + LLM-as-a-Judge 评测框架，引入 MiniMax 2.7 与 Gemini Pro 3 作为双裁判模型，结合 N-gram 重复率、结构统计、风格检测、多轮评审（K=3）与中位数聚合/规则后修正，实现面向中文长回答的自动化、多维度质量评估。
-- 在约 6000 条训练样本、600 条评测样本 上推进 v2–v2.9 多版本实验，对 LoRA target、max_length、learning rate、decode 策略与 UL-lite loss 等关键变量进行系统对照，定位 NonRepetition 为核心瓶颈，并形成从训练侧到推理侧的专项优化路径。
-- 推动最佳版本相较 base 获得 +8.09 分整体增益，验证了 attention-only LoRA + 低学习率 + decode 约束 在中文长回答场景中的有效性，并为后续 RLHF / Preference Optimization / reward design 提供可复用实验基线。  
+- 面向中文长回答中的结构松散、主题漂移、重复回环与长序列质量衰退，探究长序列后半段稳定性与 CoT 在长文本中的外推；基于 Hugging Face 约 4.4 万条语料完成筛选与 LLM judge 质量评估，构建高质量训练集。
+- 基于 Qwen3.5-3B 搭建后训练 workflow（SFT、推理对比、离线评测与版本迭代），系统对照 LoRA、max_length、learning rate、decode 等变量，定位重复与长序列回答等核心瓶颈。
+- 构建 LLM-as-a-Judge agent，引入 MiniMax 2.7、Gemini Pro 3、GLM 5.1 与多类统计与规则后处理；并开展 prompt 长度效应实验及 RL-friendly SFT、CoT 与分段生成等探索。  
 
-<p class="section-entry-title">2. <a href="{{ site.baseurl }}/portfolio/photonics/">基于 AI 的一维光子晶体逆向设计</a></p>
+<p class="section-entry-title">2. <a href="{{ site.baseurl }}/portfolio/photonics/">面向混合离散-连续设计的光学多层膜逆向学习驱动搜索框架</a></p>
 <span class="section-entry-meta">12/2023 – 05/2024</span>
 
-- 基于 NumPy 与传输矩阵法（TMM）自研向量化物理模型，完成一维多层薄膜结构在多入射角（0°–60°）及 TE/TM 偏振态下的正向模拟，搭建「结构参数 → 物理仿真 → 光谱输出」的自动化数据管线。  
-- 构建融合阻带抑制、通带透过率与厚度/层数惩罚的多目标损失函数，搭建逆向设计闭环，输出可运行最小可行系统（MVS），并为后续引入代理模型与串联神经网络提供基线。  
+- 将可见光多层膜设计建模为 MDO 问题，结合 TMM 前向评估、ValueNet 学习筛选与 GA/PSO 演化搜索，处理离散材料选择与连续层厚、目标不可导带来的高维非凸优化。  
+- 在 450–500 nm 防蓝光等任务上得到约 11 层、总厚约 630 nm 的代表性设计，目标区平均透过率约 2.3%；代码见 [1Dthinfilm_design](https://github.com/zhangbomingnice/1Dthinfilm_design)。  
 
 <p class="section-entry-title">3. <a href="{{ site.baseurl }}/portfolio/rydberg/">里德堡原子交互式计算平台开发</a></p>
 <span class="section-entry-meta">07/2023 – 02/2024 · 指导老师：贾凤东（中国科学院大学）</span>
@@ -85,6 +83,16 @@ redirect_from:
 ---
 
 ### 实习经历
+
+<p class="section-entry-title">科大讯飞股份有限公司</p>
+<p class="section-entry-title-sub">大模型实习生 · 智能座舱助手 · 12/2025 – 02/2026</p>
+
+- 多 Agent 座舱对话（音乐/空调/手册问答）与 ReAct 工具链；RAG（BM25+BGE-M3、Milvus）；Qwen3-14B LoRA + DPO；分层记忆与自动化评测、CI/CD 回归。  
+
+<p class="section-entry-title">猿辅导</p>
+<p class="section-entry-title-sub">大模型实习生 · 英语智能助手 · 05/2025 – 07/2025</p>
+
+- K12 英语多 Agent 协同与约 5 万条教师风格 LoRA 微调；BGE-M3 + Milvus 混合检索与 RAGAS 评测；任务完成率与解题准确率显著提升。  
 
 <p class="section-entry-title">时代骐骥新能源科技（大同）有限公司（宁德时代）</p>
 <p class="section-entry-title-sub">算法优化工程师 · 07/2024 – 09/2024</p>
