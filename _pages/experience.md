@@ -10,13 +10,17 @@ author_profile: true
 ## 项目经历
 
 <p class="section-entry-title">1. <a href="{{ site.baseurl }}/portfolio/sft-longanswer/">针对于中文（孤立语）的LLM 长回答优化</a></p>
-<span class="section-entry-meta">03/2026 – 至今</span>
+<span class="section-entry-meta">3/2026 – 至今</span>
 
-* 面向中文长回答生成中结构松散、主题漂移、重复回环与长序列质量衰退等问题，探究长序列后半段稳定性与 CoT 在长文本回答中的外推表现。
-* 数据侧：使用 Hugging Face 约 4.4 万条高质量原始语料，完成中文长回答问题筛选与基于 LLM judge 的长回答质量评估，剔除字符型/段落型/语义型重复及无有效信息增量样本，保障训练数据质量。
-* 系统侧：基于 Qwen3.5-3B 搭建中文长回答后训练 workflow，覆盖训练样本构建、SFT 微调、推理对比、离线评测与版本迭代；围绕 LoRA、max_length、learning rate、decode 策略等变量做系统对照，定位重复、文本结构性与长序列回答质量等核心瓶颈。
-* 评测侧：构建 LLM-as-a-Judge 的 agent，引入 MiniMax 2.7、Gemini Pro 3、GLM 5.1 作为裁判，结合 N-gram 重复率、结构统计、风格检测、多轮评审、中位数聚合与规则后修正，对重复、拖尾、结构失稳与主题漂移做系统分析与误差归因。
-* 扩展实验：在控制变量下研究 prompt 长度对长回答性能的影响（无关 token、空格填充、padding mask 等），比较 Qwen3.5-9B、MiniMax M2.7-Lightning、K2.5-8B 在长文本条件下的质量变化；并探索 RL-friendly SFT 与 CoT、大纲规划、分段生成等对结构稳定性、信息密度与 CoT 外推的影响。
+<p><strong>项目背景：</strong>面向中文长回答生成场景，针对回答中普遍存在的结构松散、主题飘逸、重复回环与长序列质量衰退等问题，探究「长序列后半段的稳定性」以及「CoT 在长文本回答中的外推」。</p>
+
+<p><strong>项目内容：</strong></p>
+
+1. **数据清洗：** 使用来自 Hugging Face 的 4.4 万条的高质量原始数据集，我做了中文长回答问题筛选以及 LLM_judge 的中文长回答质量评估。精选出没有字符型重复，段落型重复，语义型重复以及无有效信息增量的中文长回答数据，确保训练过程的质量。
+2. **SFT-RL 后训练实验系统：** 基于 Qwen3.5-3B 搭建中文长回答后训练 workflow，形成覆盖训练样本构建、SFT 微调、推理对比、离线评测与版本迭代的闭环系统；围绕 LoRA、max_length、learning rate、decode 策略等关键变量开展系统性对照实验，定位重复问题/文本结构性/长序列回答质量为核心瓶颈，并形成从训练侧到推理侧的专项优化路径。
+3. **长回答评测体系：** 构建 LLM-as-a-Judge 的 agent，引入 MiniMax 2.7，Gemini Pro 3，GLM 5.1 作为裁判模型，结合 N-gram 重复率、结构统计、风格检测、多轮评审、中位数聚合与规则后修正，对中文长回答中的重复、拖尾、结构失稳与主题漂移现象进行系统分析，实现从自动评测到误差归因的完整评测闭环。
+4. **长度效应下的长序列退化分析：** 基于已有 pipeline，对「prompt 长度本身是否影响模型长回答性能与最终求解能力」开展控制变量实验；在确保模型能够正确检索关键信息的前提下，通过注入无关 token、空格填充与 padding mask 等方式扩展上下文长度，比较 Qwen3.5-9B、MiniMax M2.7-Lightning、K2.5-8B 在长文本条件下的回答质量变化，观察到多模型一致的长回答质量退化现象。
+5. **RL-friendly SFT 与CoT 长本文回答研究探索：** 不再以离线 SFT 指标最优作为唯一目标，而是将后续 RL 适配度纳入评价，探索 RL-friendly SFT 训练范式；同时围绕 CoT、大纲规划与分段生成构建专项对照实验，分析其对中文长回答结构稳定性、信息密度以及 CoT 外推的影响。
 
 <p class="section-entry-title">2. <a href="{{ site.baseurl }}/portfolio/photonics/">面向混合离散-连续设计的光学多层膜逆向学习驱动搜索框架</a></p>
 <span class="section-entry-meta">12/2023 – 05/2024</span>
